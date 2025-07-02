@@ -9,32 +9,10 @@ program SerpienteGame {
 	game.boardGround("escenarioLimpio.png")
 	juego.iniciar()
 	game.cellSize(64)
-	juego.agregarManzanas(4, 8)
-	juego.agregarManzanas(16, 5)
-	juego.agregarManzanas(11, 2)
-	juego.agregarManzanas(12, 7)
-	juego.agregarManzanas(2, 6)
-	juego.agregarManzanas(17, 8)
-	juego.agregarManzanas(3, 8)
-	juego.agregarManzanaEnvenenada(1, 1, venenoFuerte)
-	juego.agregarManzanaEnvenenada(20, 5, venenoFuerte)
-	juego.agregarManzanaEnvenenada(10, 3, venenoFuerte)
-	juego.agregarManzanaEnvenenada(7, 7, venenoFuerte)
-	juego.agregarManzanaEnvenenada(5, 9, venenoFuerte)
-	juego.agregarManzanaEnvenenada(2, 2, venenoFuerte)
-	
-	/*
-	//keyboard.up().onPressDo ({ serpiente.movete(serpiente.position()) })
-    //keyboard.down().onPressDo ({ serpiente.movete(serpiente.position()) })
-    //keyboard.left().onPressDo({ serpiente.movete(serpiente.position()) })
-    //keyboard.right().onPressDo({ serpiente.movete(serpiente.position()) })
-
-	// add assets in asset folder, for example, for the background
-  // game.boardGround("fondo2.jpg")
-
-	*/
-
-	 //Debug
-
+	juego.agregarCaminoCorrecto()
+	juego.agregarFilaEnvenenada(1,[5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] ,venenoSuave)
+	juego.agregarFilaEnvenenada(8,[5,6,7,8,9,10,11,12,13,15,16,17,18,19,20] ,venenoSuave)
+	juego.agregarColEnvenenada(4,[1,2,3,4,5,6,7,8] ,venenoSuave)
+	juego.agregarColEnvenenada(20,[2,3,4,5,6,7] ,venenoSuave)
 	game.start()
 }

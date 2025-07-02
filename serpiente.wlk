@@ -5,7 +5,7 @@ object juego{
     game.addVisualCharacter(serpiente)
     game.onCollideDo(serpiente,{elemento=>elemento.interaccion()})
   }
-  method agregarManzanas(x,y){
+  method agregarManzana(x,y){
     const manzana= new Manzana(position= game.at(x,y))
     game.addVisual(manzana)
 
@@ -15,7 +15,25 @@ object juego{
     game.addVisual(manzana)
 
   }
-  
+  method agregarCaminoCorrecto(){
+    self.agregarManzana(14, 8)
+    self.agregarFilaManzanas(7,[8,9,10,11,12,13,14])
+    self.agregarFilaManzanas(6, [8,9,10,11,12,13,14,15,16,17,18])
+    self.agregarColManzanas(18, [4,5])
+    self.agregarFilaManzanas(3, [8,9,10,11,12,13,14,15,16,17,18])
+  }
+  method agregarFilaEnvenenada(fila,listaPosCol ,nivelVeneno){
+    listaPosCol.forEach({x => self.agregarManzanaEnvenenada(x,fila, nivelVeneno)})
+  }
+  method agregarColEnvenenada(col, listaPosFila, nivelVeneno){
+    listaPosFila.forEach({y => self.agregarManzanaEnvenenada(col, y, nivelVeneno)})
+  }
+  method agregarFilaManzanas(fila, listaPosCol){
+    listaPosCol.forEach({x => self.agregarManzana(x,fila)})
+  }
+  method agregarColManzanas(col,listaPosFila){
+    listaPosFila.forEach({y => self.agregarManzana(col, y)})
+  }
     
 }
 
@@ -31,7 +49,7 @@ object serpiente {
   method estaViva()= vida>0
   method comer(){vida+=1}
   method mostrarVida()= "vida: " + vida
-  method text()= "vida: " + vida
+  method vida() = vida
  
 }
 
@@ -45,7 +63,11 @@ class Manzana{
   method interaccion(){
     if(serpiente.estaViva()){
     game.removeVisual(self)
-    serpiente.comer()}
+    serpiente.comer()
+    }else{
+      game.say(serpiente, "Perdiste no te quedan vidas")
+      game.stop()
+    }
     game.say(serpiente, serpiente.mostrarVida())
     }
   
@@ -57,9 +79,14 @@ class ManzanaEnvenenada inherits Manzana{
   override method interaccion(){ 
     if(serpiente.estaViva()){
     game.removeVisual(self)
-    serpiente.quitarVida(nivelVeneno.cantidad())}
+    serpiente.quitarVida(nivelVeneno.cantidad())
+    }
+    else{
+      game.say(serpiente, "Perdiste no te quedan vidas")
+      game.stop()
+    }
     game.say(serpiente, serpiente.mostrarVida())
-     }
+  }
 }
  object venenoFuerte{
   method cantidad()=3
