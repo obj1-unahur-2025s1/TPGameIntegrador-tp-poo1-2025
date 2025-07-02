@@ -2,9 +2,12 @@
 
 ## Equipo de desarrollo
 
-- Alguien
-- Persona
-- etc.
+- Ferrario Mendoza Claudio
+- Secco Miguel David
+- Tundis Bruno
+- Urdiales Nicolas
+- Garcia Agustin
+- Rodriguez Tobias Valentin
 
 ## Capturas
 
@@ -17,6 +20,6 @@
 
 ## Otros
 
-- Curso/Facultad
-- Versión de wollok
+- Programacion Orientada a Objetos 1 /UNAHUR
+- Versión de wollok 0.3.1
 - Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado

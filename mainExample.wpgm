@@ -1,18 +1,40 @@
+import serpiente.*
 import wollok.game.*
 
-import example.pepita
 
-program PepitaGame {
-	game.title("Pepita")
+program SerpienteGame {
+	game.title("Serpiente")
 	game.height(10)
-	game.width(10)
+	game.width(22)
+	game.boardGround("escenarioLimpio.png")
+	juego.iniciar()
+	game.cellSize(64)
+	juego.agregarManzanas(4, 8)
+	juego.agregarManzanas(16, 5)
+	juego.agregarManzanas(11, 2)
+	juego.agregarManzanas(12, 7)
+	juego.agregarManzanas(2, 6)
+	juego.agregarManzanas(17, 8)
+	juego.agregarManzanas(3, 8)
+	juego.agregarManzanaEnvenenada(1, 1, venenoFuerte)
+	juego.agregarManzanaEnvenenada(20, 5, venenoFuerte)
+	juego.agregarManzanaEnvenenada(10, 3, venenoFuerte)
+	juego.agregarManzanaEnvenenada(7, 7, venenoFuerte)
+	juego.agregarManzanaEnvenenada(5, 9, venenoFuerte)
+	juego.agregarManzanaEnvenenada(2, 2, venenoFuerte)
+	
+	/*
+	//keyboard.up().onPressDo ({ serpiente.movete(serpiente.position()) })
+    //keyboard.down().onPressDo ({ serpiente.movete(serpiente.position()) })
+    //keyboard.left().onPressDo({ serpiente.movete(serpiente.position()) })
+    //keyboard.right().onPressDo({ serpiente.movete(serpiente.position()) })
 
 	// add assets in asset folder, for example, for the background
   // game.boardGround("fondo2.jpg")
 
-	//
+	*/
 
-	game.showAttributes(pepita) //Debug
+	 //Debug
 
 	game.start()
 }
