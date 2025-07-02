@@ -4,6 +4,7 @@ object juego{
   method iniciar(){
     game.addVisualCharacter(serpiente)
     game.onCollideDo(serpiente,{elemento=>elemento.interaccion()})
+    game.addVisual(manzanaDorada)
   }
   method agregarManzana(x,y){
     const manzana= new Manzana(position= game.at(x,y))
@@ -16,11 +17,10 @@ object juego{
 
   }
   method agregarCaminoCorrecto(){
-    self.agregarManzana(14, 8)
-    self.agregarFilaManzanas(7,[8,9,10,11,12,13,14])
-    self.agregarFilaManzanas(6, [8,9,10,11,12,13,14,15,16,17,18])
-    self.agregarColManzanas(18, [4,5])
-    self.agregarFilaManzanas(3, [8,9,10,11,12,13,14,15,16,17,18])
+    self.agregarFilaManzanas(1,[2,4,6,8,10,12,14,16,18,20])
+    self.agregarFilaManzanas(8, [1,3,5,7,9,11,13,15,17,19])
+    self.agregarColManzanas(1, [2,4,6])
+    self.agregarColManzanas(20, [3,5,7])
   }
   method agregarFilaEnvenenada(fila,listaPosCol ,nivelVeneno){
     listaPosCol.forEach({x => self.agregarManzanaEnvenenada(x,fila, nivelVeneno)})
@@ -71,6 +71,11 @@ class Manzana{
     game.say(serpiente, serpiente.mostrarVida())
     }
   
+}
+object manzanaDorada{
+  const position= game.center()
+  method position()= position
+  method image()="manzanaDorada.png"
 }
 //game.whenCollideDo(objeto, accionConColisionado).
 
