@@ -1,18 +1,25 @@
 import serpiente.*
 import wollok.game.*
 import juego.*
-
-
+//keyboard.enter().onPressDo({ACA IRIA LA ISNTRUCCION QUE NOS PIDEN EN LA SEMANA 11 })
+// NICO, ACA INTENTAMOS CON MIGUEL PASAR UN MENSAJE QUE COMUNIQUE LAS INSTRUCCTIONES DENTRO DEL 
+// JUEGO PERO NO SE PUEDE, SUPUESTAMENTE ES UN ERROR DE WOLLOK
+// SE DESBORDA LA BURBUJA DEL MENSAJE!.
+// "Debe tener al menos 2 niveles de dificultad" INTERPRETAMOS A ESTE MENSAJE CON MIGUEL
+// Y DEDUCIMOS QUE NO NECESARIAMENTE HAY QUE CAMBIAR EL ESCENARIO, SINO QUE
+// TAL VEZ PODAMOS METER 2 NIVELES DE DIFICULTAD EN UN OBJETO O DOS OBJETOS 
+// PENSAMOS TAMBIEN QUE EL 
 program SerpienteGame {
 	game.title("Serpiente")
+	game.addVisual(instruccionJuego)
 	game.height(10)
 	game.width(22)
+	//game.schedule(10000, {game.say(instruccionJuego,instruccionJuego.mensaje())})
 	game.boardGround("escenarioLimpio.png")
 	juego.iniciar()
-	game.schedule(1000, { game.say(serpiente, "¡Hora de comer!") })
+	game.schedule(2000, { game.say(serpiente, "¡Hora de comer!") })
 	game.cellSize(64)
 	juego.agregarCaminoCorrecto()
 	juego.agregarCaminoEnvenenado()
 	game.start()
-
 }

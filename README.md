@@ -1,4 +1,4 @@
-# Nombre del juego (<- borrar y completar)
+# Serpiente
 
 ## Equipo de desarrollo
 
@@ -11,15 +11,20 @@
 
 ## Capturas
 
-(agregar)
+![Serpiente](./assets/serpientejpg.jpg)
 
 ## Reglas de Juego / Instrucciones
+### Objetivo
+Controla la serpiente que debe llegar a comer la manzana dorada para ganar el juego, recorriendo el camino correcto, evitando las manzanas envenenadas que le quitan vida.¡No te quedes sin vida!
 
-(Escribirlas)
+Controles
+- Teclas de dirección (↑, ↓, ←, →) para mover la serpiente.
 
 
 ## Otros
 
 - Programacion Orientada a Objetos 1 /UNAHUR
 - Versión de wollok 0.3.1
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
+- Una vez terminado, queremos manternerlo privado
+
+

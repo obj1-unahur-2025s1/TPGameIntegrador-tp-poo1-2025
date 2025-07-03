@@ -1,11 +1,13 @@
 import serpiente.*
 import mainExample.*
 object juego{
+    var nivelDificultad= facil
   method iniciar(){
     game.addVisualCharacter(serpiente)
-    game.onCollideDo(serpiente,{elemento=>elemento.interaccion()})
+    serpiente.comerManzana()
     game.addVisual(manzanaDorada)
   }
+  //method cambiarNivelDificultad() {if serpiente.cantidadManzanasNoEnvenenadas()>} <------- puede servir para que se cambiar el nivel de dificultad y hacer algo mas
 
   method agregarManzana(x,y){
     const manzana= new Manzana(position= game.at(x,y))
@@ -24,7 +26,7 @@ object juego{
     self.agregarFilaManzanas(3,[5,6,9,10,13,14,17,18])
     self.agregarFilaManzanas(6, [3,4,7,8,11,12,15,16])
     self.agregarColManzanas(3, [5,6])
-    self.agregarColManzanas(18, [4])
+    self.agregarColManzanas(18, [4])
   }
   method agregarCaminoEnvenenado(){
     self.agregarFilaEnvenenada(1,[1,3,5,7,9,11,13,15,17,19], venenoSuave)
@@ -51,4 +53,25 @@ object juego{
   method hasGanado(){
     game.onCollideDo(serpiente, manzanaDorada)
   }
+}
+object facil{
+    method nivelDeDificultad()=1
+}
+object dificl{
+    method nivelDeDificultad()=2
+}
+object instruccionJuego{
+    method position() = game.at(0,0)
+    method mensaje() = 
+    "instrucciones de uso:
+    -tecla ↑ Arriba = Mover arriba
+    -tecla ↓ Abajo = Mover abajo
+    -tecla → Derecha = Mover derecha
+    -tecla ← Izquierda = Mover izquierda
+    
+Controla la serpiente para comer manzanas
+movete por el camino correcto
+presta Atención en el camino puede haber manzanas
+envenenadas
+"
 }
