@@ -19,6 +19,12 @@ object serpiente {
   method estaViva()= vida>0
   method mostrarVida()= "vida: " + vida
   method vida() = vida
+  method ganar() {
+    if (contador == 2){
+      game.say(self, "Gané!!!!")
+      game.stop()
+    }
+  }
 }
 
 class Manzana{
@@ -43,7 +49,7 @@ class Manzana{
     }
   
 }
-object manzanaDorada{
+class ManzanaDorada{
   var position= game.center()
   method position()=position
   method image()="manzanaDorada.png"
@@ -52,10 +58,13 @@ object manzanaDorada{
     game.removeVisual(self)
     nivel1.quitarTodasLasManzanasDelEscenario()
     serpiente.position(game.origin())
-    game.addVisualCharacter(serpiente)
-    game.addVisual(self)
+    game.clear()
     nivel2.iniciar()
     serpiente.aumentarCotador()
+    }
+    else{
+      game.removeVisual(self)
+      serpiente.aumentarCotador()
     }
    
   }

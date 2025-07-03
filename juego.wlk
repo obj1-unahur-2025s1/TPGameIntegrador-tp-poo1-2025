@@ -6,6 +6,7 @@ object nivel1{
     const manzanasEnvenenadas=#{} 
     method agregarManzana(x,y){
     const manzana= new Manzana(position= game.at(x,y))
+    const manzanaDorada = new ManzanaDorada()
     game.addVisual(manzana)
     manzanas.add(manzana)
  }
@@ -32,7 +33,7 @@ object nivel1{
     self.escenario()
     game.addVisualCharacter(serpiente)
     serpiente.comerManzana()
-    game.addVisual(manzanaDorada)
+    game.addVisual(new ManzanaDorada())
     game.addVisual(instruccionJuego)
     self.agregarCaminoCorrecto()
     
@@ -89,9 +90,11 @@ object music{
 object nivel2{
   method iniciar(){
     self.escenario()
+    serpiente.comerManzana()
   }
   method escenario(){
-    game.addVisual(manzanaDorada)
+    game.addVisual(new ManzanaDorada())
+    game.addVisualCharacter(serpiente)
     self.agregarManzana(11, 6)
     self.agregarManzanaEnvenenada(11, 4,venenoFuerte)
     self.agregarManzanaEnvenenada(12, 5,venenoFuerte)
