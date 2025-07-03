@@ -1,7 +1,10 @@
 import wollok.game.*
 import juego.*
 object serpiente {
-  var vida=15
+  var vida=3
+  var contador=0
+  method contador()=contador
+  method aumentarCotador(){contador+=1}
   const  manzanas=#{}
   method agregarManzana(unaManzana){manzanas.add(unaManzana)}
   var position= game.at(0,0)
@@ -14,7 +17,6 @@ object serpiente {
   method manzanasComidas()= manzanas.size()
   method comerManzana(){ game.onCollideDo(self,{elemento=>elemento.interaccion()})}
   method estaViva()= vida>0
-  method aumentarVida(){vida+=1}
   method mostrarVida()= "vida: " + vida
   method vida() = vida
 }
@@ -29,7 +31,6 @@ class Manzana{
   method interaccion(){
     if(serpiente.estaViva()){
     game.removeVisual(self)
-    serpiente.aumentarVida()
     serpiente.agregarManzana(self)
     }else{
       game.say(serpiente, "Perdiste no te quedan vidas")
@@ -47,12 +48,14 @@ object manzanaDorada{
   method position()=position
   method image()="manzanaDorada.png"
   method interaccion(){
-    if(serpiente.manzanasComidas()==18){
+    if(serpiente.manzanasComidas()==18 and serpiente.contador()==0){
     game.removeVisual(self)
     nivel1.quitarTodasLasManzanasDelEscenario()
     serpiente.position(game.origin())
     game.addVisualCharacter(serpiente)
     game.addVisual(self)
+    nivel2.iniciar()
+    serpiente.aumentarCotador()
     }
    
   }

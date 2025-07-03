@@ -34,7 +34,6 @@ object nivel1{
     serpiente.comerManzana()
     game.addVisual(manzanaDorada)
     game.addVisual(instruccionJuego)
-    self.escenario()
     self.agregarCaminoCorrecto()
     
 	
@@ -49,7 +48,7 @@ object nivel1{
     self.agregarManzana(11,4)
   }
     method escenario(){
-    self.agregarFilaEnvenenada(1,[5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] ,venenoSuave)
+  self.agregarFilaEnvenenada(1,[5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] ,venenoSuave)
 	self.agregarFilaEnvenenada(8,[5,6,7,8,9,10,11,12,13,15,16,17,18,19,20] ,venenoSuave)
 	self.agregarColEnvenenada(4,[1,2,3,4,5,6,7,8] ,venenoSuave)
 	self.agregarColEnvenenada(20,[2,3,4,5,6,7] ,venenoSuave)
@@ -76,10 +75,6 @@ object nivel1{
     listaPosFila.forEach({y => self.agregarManzana(col, y)})
   }
 }
-object dificil{
-    method nivelDeDificultad()=2
-    method escenario(){}
-}
 object instruccionJuego{
     method position() = game.at(0,9)
     method instruccion()="Move la serpiente (↑, ↓, ←, →).Eleji un camino,avanza para llegar a comer la manzana dorada y ganá.¡Cuidado hay manzanas envenenadas!.                                                                    "
@@ -90,4 +85,28 @@ object instruccionJuego{
 
 object music{
     method play(){game.sound("cancion.mp3").play()}
+}
+object nivel2{
+  method iniciar(){
+    self.escenario()
+  }
+  method escenario(){
+    game.addVisual(manzanaDorada)
+    self.agregarManzana(11, 6)
+    self.agregarManzanaEnvenenada(11, 4,venenoFuerte)
+    self.agregarManzanaEnvenenada(12, 5,venenoFuerte)
+    self.agregarManzanaEnvenenada(12, 4,venenoFuerte)
+    self.agregarManzanaEnvenenada(10, 5,venenoFuerte)
+    self.agregarManzanaEnvenenada(10, 4,venenoFuerte)
+    self.agregarManzanaEnvenenada(10, 6,venenoFuerte)
+    self.agregarManzanaEnvenenada(12, 6,venenoFuerte)
+  }
+  method agregarManzana(x,y){
+    const manzana= new Manzana(position= game.at(x,y))
+    game.addVisual(manzana)
+ }
+ method agregarManzanaEnvenenada(x,y,unVeneno){
+    const manzana= new ManzanaEnvenenada(position=game.at(x,y),nivelVeneno=unVeneno)
+    game.addVisual(manzana)
+  }
 }
