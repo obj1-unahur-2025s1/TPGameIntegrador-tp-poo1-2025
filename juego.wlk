@@ -1,11 +1,15 @@
 import serpiente.*
 import mainExample.*
+
 object juego{
     var nivelDificultad= facil
   method iniciar(){
+    keyboard.enter().onPressDo({instruccionJuego.empezarJuego()})
     game.addVisualCharacter(serpiente)
     serpiente.comerManzana()
     game.addVisual(manzanaDorada)
+    game.addVisual(instruccionJuego)
+    
   }
   //method cambiarNivelDificultad() {if serpiente.cantidadManzanasNoEnvenenadas()>} <------- puede servir para que se cambiar el nivel de dificultad y hacer algo mas
 
@@ -61,17 +65,11 @@ object dificl{
     method nivelDeDificultad()=2
 }
 object instruccionJuego{
-    method position() = game.at(0,0)
-    method mensaje() = 
-    "instrucciones de uso:
-    -tecla ↑ Arriba = Mover arriba
-    -tecla ↓ Abajo = Mover abajo
-    -tecla → Derecha = Mover derecha
-    -tecla ← Izquierda = Mover izquierda
-    
-Controla la serpiente para comer manzanas
-movete por el camino correcto
-presta Atención en el camino puede haber manzanas
-envenenadas
-"
+    method position() = game.center()
+    method image()= "instrucciones.jpg"
+    method empezarJuego(){
+        game.removeVisual(self)
+    }
+   
+
 }

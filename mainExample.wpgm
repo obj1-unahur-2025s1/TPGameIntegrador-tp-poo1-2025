@@ -10,8 +10,9 @@ import juego.*
 // TAL VEZ PODAMOS METER 2 NIVELES DE DIFICULTAD EN UN OBJETO O DOS OBJETOS 
 // PENSAMOS TAMBIEN QUE EL 
 program SerpienteGame {
+	
 	game.title("Serpiente")
-	game.addVisual(instruccionJuego)
+	//game.addVisual(instruccionJuego)
 	game.height(10)
 	game.width(22)
 	//game.schedule(10000, {game.say(instruccionJuego,instruccionJuego.mensaje())})
