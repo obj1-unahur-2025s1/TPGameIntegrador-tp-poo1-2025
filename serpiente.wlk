@@ -54,7 +54,7 @@ class ManzanaDorada{
   method position()=position
   method image()="manzanaDorada.png"
   method interaccion(){
-    if(serpiente.manzanasComidas()==18 and serpiente.contador()==0){
+    if(serpiente.contador()==0){
     game.removeVisual(self)
     nivel1.quitarTodasLasManzanasDelEscenario()
     serpiente.position(game.origin())

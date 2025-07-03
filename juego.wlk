@@ -2,6 +2,50 @@ import serpiente.*
 import mainExample.*
 
 object nivel1{
+  const manzanas=#{}
+  const manzanasEnvenenadas=#{} 
+  method iniciar(){
+    keyboard.enter().onPressDo{game.say(instruccionJuego,instruccionJuego.instruccion())}
+    self.escenario()
+    game.addVisual(instruccionJuego)
+    serpiente.comerManzana()
+  }
+  method escenario(){
+    game.addVisual(new ManzanaDorada())
+    game.addVisualCharacter(serpiente)
+    self.agregarManzana(11, 6)
+    self.agregarManzanaEnvenenada(11, 4,venenoFuerte)
+    self.agregarManzanaEnvenenada(12, 5,venenoFuerte)
+    self.agregarManzanaEnvenenada(12, 4,venenoFuerte)
+    self.agregarManzanaEnvenenada(10, 5,venenoFuerte)
+    self.agregarManzanaEnvenenada(10, 4,venenoFuerte)
+    self.agregarManzanaEnvenenada(10, 6,venenoFuerte)
+    self.agregarManzanaEnvenenada(12, 6,venenoFuerte)
+  }
+  method agregarManzana(x,y){
+    const manzana= new Manzana(position= game.at(x,y))
+    game.addVisual(manzana)
+ }
+ method agregarManzanaEnvenenada(x,y,unVeneno){
+    const manzana= new ManzanaEnvenenada(position=game.at(x,y),nivelVeneno=unVeneno)
+    game.addVisual(manzana)
+  }
+  method quitarTodasLasManzanasDelEscenario(){
+    self.quitarManzanasEnvenenadas()
+    self.quitarManzanasNoEnvenenadas()
+    }
+    method quitarManzanasNoEnvenenadas() {
+      manzanas.forEach({manzana=>manzana.borrar()})
+      manzanas.clear()
+    }
+  method quitarManzanasEnvenenadas(){
+    manzanasEnvenenadas.forEach({manzana=>manzana.borrar()})
+    manzanasEnvenenadas.clear()
+    }
+}
+
+
+object nivel2{
     const manzanas=#{}
     const manzanasEnvenenadas=#{} 
     method agregarManzana(x,y){
@@ -29,8 +73,8 @@ object nivel1{
     manzanasEnvenenadas.clear()
     }
     method iniciar(){
-    keyboard.enter().onPressDo{game.say(instruccionJuego,instruccionJuego.instruccion())}
     self.escenario()
+    keyboard.enter().onPressDo{game.say(instruccionJuego,instruccionJuego.instruccion())}
     game.addVisualCharacter(serpiente)
     serpiente.comerManzana()
     game.addVisual(new ManzanaDorada())
@@ -86,30 +130,4 @@ object instruccionJuego{
 
 object music{
     method play(){game.sound("cancion.mp3").play()}
-}
-object nivel2{
-  method iniciar(){
-    self.escenario()
-    serpiente.comerManzana()
-  }
-  method escenario(){
-    game.addVisual(new ManzanaDorada())
-    game.addVisualCharacter(serpiente)
-    self.agregarManzana(11, 6)
-    self.agregarManzanaEnvenenada(11, 4,venenoFuerte)
-    self.agregarManzanaEnvenenada(12, 5,venenoFuerte)
-    self.agregarManzanaEnvenenada(12, 4,venenoFuerte)
-    self.agregarManzanaEnvenenada(10, 5,venenoFuerte)
-    self.agregarManzanaEnvenenada(10, 4,venenoFuerte)
-    self.agregarManzanaEnvenenada(10, 6,venenoFuerte)
-    self.agregarManzanaEnvenenada(12, 6,venenoFuerte)
-  }
-  method agregarManzana(x,y){
-    const manzana= new Manzana(position= game.at(x,y))
-    game.addVisual(manzana)
- }
- method agregarManzanaEnvenenada(x,y,unVeneno){
-    const manzana= new ManzanaEnvenenada(position=game.at(x,y),nivelVeneno=unVeneno)
-    game.addVisual(manzana)
-  }
 }
