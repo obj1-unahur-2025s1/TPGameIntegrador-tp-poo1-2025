@@ -3,7 +3,7 @@ import juego.*
 object serpiente {
   const manzanasEnvenenadas=#{}
   const manzanasNoEnvenenadas=#{}
-  var vida=5
+  var vida = 1
   var position= game.at(0,0)
   method quitarVida(cantidad){ vida= (vida-cantidad).max(0)}
   method image()= if (vida> 0)"serpiente.png" else "serpiente2.png"
@@ -34,7 +34,6 @@ class Manzana{
     serpiente.aumentarVida()
     serpiente.agregarManzanaNoEnvenenada(self)
     }else{
-      game.say(serpiente, "Perdiste no te quedan vidas")
       game.stop()
     }
     game.say(serpiente, serpiente.mostrarVida())
@@ -47,8 +46,11 @@ object manzanaDorada{
   method image()="manzanaDorada.png"
   method interaccion(){
     //game.allVisuals().forEach({visual=>game.removeVisual(visual)})
+    if(serpiente.vida() == 19){
     serpiente.position(game.origin())
     game.addVisualCharacter(serpiente)
+    }
+
    
   }
 }
