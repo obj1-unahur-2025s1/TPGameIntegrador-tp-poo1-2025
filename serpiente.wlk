@@ -64,7 +64,7 @@ class ManzanaDorada{
     }
     else{
       game.removeVisual(self)
-      serpiente.aumentarCotador()
+      game.removeVisual(serpiente)
     }
    
   }
