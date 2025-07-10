@@ -11,7 +11,7 @@
 
 ## Capturas
 
-![Serpiente](./assets/serpientejpg.jpg)
+![Galactic Conflict](./assets/captura.png)
 
 ## Reglas de Juego / Instrucciones
 ### Objetivo
