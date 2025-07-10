@@ -4,6 +4,6 @@ object instrucciones{
         game.addVisual(self)
         configuracionTeclado.modoInstrucciones()
     }
-    method image() = "instrucciones.jpg"
+    method image() = "instruccion.png"
     method position() = game.origin()
 }

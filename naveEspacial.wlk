@@ -25,7 +25,7 @@ object naveEspacial{
     method disparar(){
         const proyectil = new Proyectil()
         proyectil.iniciar()
-        game.onTick(100, "disparar Proyectil", {proyectil.moverArriba()})
+        game.onTick(50, "disparar Proyectil", {proyectil.moverArriba()})
         game.onCollideDo(proyectil, {unEnemigo => proyectil.interaccion(unEnemigo)})
     }
 }
@@ -45,22 +45,27 @@ class NaveEnemiga{
         }
     }
     method chocarNave(){
-        //game.removeVisual(self)
         naveEspacial.quitarVida(1)
-        //game.removeVisual(naveEspacial)
-        //game.addVisual(explocion)
-        //game.addVisual(naveEspacial)
         juegoInicial.gameOver()
 
     
     }
     method interaccion(){
         image = "explosion.png"
-        game.schedule(2000, {game.removeVisual(self)})
+        game.schedule(500, {game.removeVisual(self)})
         score.sumarScore(1)
     }
     
 }
+
+
+
+
+
+
+
+
+
 object explocion{
     method image()="explosion.png"
     method position()=naveEspacial.position()

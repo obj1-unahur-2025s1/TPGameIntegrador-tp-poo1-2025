@@ -22,6 +22,10 @@ object score{
     }
 
     method cambiarUbicacion(){
+        puntuacion.get(0).cambiarUbicacion(17,8)
+        puntuacion.get(1).cambiarUbicacion(18,8)
+        puntuacion.get(2).cambiarUbicacion(19,8)
+        puntuacion.get(3).cambiarUbicacion(20,8)
     }
 
     method sumarScore(cantidad){

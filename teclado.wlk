@@ -12,6 +12,7 @@ object configuracionTeclado{
         keyboard.left().onPressDo({teclado.left()})
         keyboard.right().onPressDo({teclado.right()})
         keyboard.space().onPressDo({teclado.space()})
+        keyboard.r().onPressDo({teclado.r()})
     }
     method modoMenu(){
         teclado = tecladoMenu
@@ -32,6 +33,7 @@ class Teclado{
     method right(){}
     method left(){}
     method space(){}
+    method r(){}
 }
 
 object tecladoMenu inherits Teclado{
@@ -49,6 +51,7 @@ object tecladoMenu inherits Teclado{
 object tecladoInstrucciones inherits Teclado{
     override method m(){
         game.removeVisual(instrucciones)
+        gameOver.quitar()
         menu.iniciar()
     }
 }
@@ -61,6 +64,9 @@ object tecladoJuego inherits Teclado{
     }
     override method space(){
         naveEspacial.disparar()
+    }
+    override method r(){
+        juegoInicial.reset()
     }
     
 }

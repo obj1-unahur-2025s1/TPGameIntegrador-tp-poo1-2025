@@ -19,7 +19,7 @@ object juegoInicial{
     method generarNavesEnemigas(){
         var naveEnemiga = new NaveEnemiga(position=self.posicionAleatoria())
         game.onTick(4000, "", {naveEnemiga = new NaveEnemiga(position=self.posicionAleatoria())})
-        game.onTick(8000, "aparecer enemigo", {naveEnemiga.aparecer()})
+        game.onTick(5000, "aparecer enemigo", {naveEnemiga.aparecer()})
        // game.onCollideDo(naveEnemiga, {elemento => elemento.interaccion()})
         
     }
@@ -31,31 +31,33 @@ object juegoInicial{
         )
     method gameOver(){
         if (not naveEspacial.estaConVida()){
-            game.removeVisual(self)
-            game.addVisual(gameOver)
-            game.stop()
+            self.quitar()
+            gameOver.iniciar()
         }
     }
-    
-    /*
-    method reiniciar(){
+    method quitar(){
         game.removeVisual(self)
         game.removeVisual(naveEspacial)
+        game.removeTickEvent("aparecer enemigo")
         score.removeVisual()
-        game.removeTickEven()
-        game.removeVisual(Proyectil)
-        naveEspacial.vida(3)
-        game.addVisual(self)
-        score.addVisual()
-        game.addVisual(naveEspacial)
-        game.addVisual(NaveEnemiga)
-        game.addVisual(Proyectil)
+        score.reset()
+    }
+    method reset(){
+        self.quitar()
         self.iniciar()
     }
-    */
+    
+    
         
 }
 object gameOver{
     method image()= "GameOver.jpeg"
     method position()= game.origin()
+    method iniciar(){
+        game.addVisual(self)
+        configuracionTeclado.modoInstrucciones()
+    }
+    method quitar(){
+        game.removeVisual(self)
+    }
 }
