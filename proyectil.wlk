@@ -12,7 +12,7 @@ class Proyectil{
     }
     method moverArriba(){
         position = position.up(1)
-        if(position.y() > game.height() - 1){
+        if(position.y() > game.height() - 3){
             game.removeVisual(self)
         }
     }
