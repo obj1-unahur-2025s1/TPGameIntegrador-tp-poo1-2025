@@ -1,4 +1,4 @@
-# Nave espacial
+# Galactic Conflict
 
 ## Equipo de desarrollo
 
