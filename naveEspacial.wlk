@@ -41,7 +41,7 @@ class NaveEnemiga{
     method moverAbajo(){
         position = position.down(1)
         if(position.y() < 3){
-            game.removeVisual(self)
+            self.quitarNave()
             
         }
     }
@@ -50,6 +50,12 @@ class NaveEnemiga{
         juegoInicial.gameOver()
 
     
+    }
+    method quitarNave(){
+        if(game.hasVisual(self)){
+        game.removeVisual(self)
+        score.restarScore(1)}
+        
     }
     method interaccion(){
         image = "explosion.png"

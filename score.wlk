@@ -32,6 +32,10 @@ object score{
         numero += cantidad
         self.cambiarPuntuacion()
     }
+    method restarScore(cantidad){
+        numero = (numero - cantidad).max(0)
+        self.cambiarPuntuacion()
+    }
 
    
     method cambiarPuntuacion(){
