@@ -1,0 +1,9 @@
+import wollok.game.*
+import naveGame.*
+
+
+
+program naveGame{
+	juego.iniciar()
+	game.start()
+}
