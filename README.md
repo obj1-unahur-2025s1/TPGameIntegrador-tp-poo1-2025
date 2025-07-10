@@ -1,4 +1,4 @@
-# Serpiente
+# Nave espacial
 
 ## Equipo de desarrollo
 
