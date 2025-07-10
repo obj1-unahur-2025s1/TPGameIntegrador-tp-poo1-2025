@@ -30,10 +30,8 @@ object juegoInicial{
             (game.height()-1).randomUpTo(game.height())
         )
     method gameOver(){
-        if (not naveEspacial.estaConVida()){
             self.quitar()
             gameOver.iniciar()
-        }
     }
     method quitar(){
         game.removeVisual(self)

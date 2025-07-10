@@ -40,13 +40,12 @@ class NaveEnemiga{
     }
     method moverAbajo(){
         position = position.down(1)
-        if(position.y() < 3){
+        if(position.y() < 2){
             self.quitarNave()
             
         }
     }
     method chocarNave(){
-        naveEspacial.quitarVida(1)
         juegoInicial.gameOver()
 
     
