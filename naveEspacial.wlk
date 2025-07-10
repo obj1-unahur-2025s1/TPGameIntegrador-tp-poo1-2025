@@ -13,7 +13,7 @@ object naveEspacial{
         game.addVisual(self)
     }
     method moverDerecha(){
-        if(position.x() < 38){
+        if(position.x() < 36){
             position = position.right(1)
         }
     }
@@ -42,8 +42,7 @@ class NaveEnemiga{
         position = position.down(1)
         if(position.y() < 3){
             game.removeVisual(self)
-            //score.restarScore(1)
-
+            
         }
     }
     method chocarNave(){
