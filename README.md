@@ -15,10 +15,11 @@
 
 ## Reglas de Juego / Instrucciones
 ### Objetivo
-Controla la serpiente que debe llegar a comer la manzana dorada para ganar el juego, recorriendo el camino correcto, evitando las manzanas envenenadas que le quitan vida.¡No te quedes sin vida!
+Controla la nave espacial y destruye a los enemigos que aparecen en pantalla para sobrevivir el mayor tiempo posible
 
 Controles
-- Teclas de dirección (↑, ↓, ←, →) para mover la serpiente.
+- Teclas de dirección (↑, ↓, ←, →) para mover la nave en las 4 direcciones
+- Barra espaciadora(space): Dispara proyectiles
 
 
 ## Otros
