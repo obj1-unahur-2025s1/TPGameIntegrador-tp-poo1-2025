@@ -11,7 +11,7 @@
 
 ## Capturas
 
-![Galactic Conflict](./assets/captura.png)
+![Galactic Conflict](./assets/captura1.png)
 
 ## Reglas de Juego / Instrucciones
 ### Objetivo
@@ -20,7 +20,11 @@ Controla la nave espacial y destruye a los enemigos que aparecen en pantalla par
 Controles
 - Teclas de dirección (↑, ↓, ←, →) para mover la nave en las 4 direcciones
 - Barra espaciadora(space): Dispara proyectiles
-
+- M : Volver al menu anterior
+- P : Activar Musica
+- R : Reiniciar
+- Num 1 : Iniciar juego
+- Num 2 : Instrucciones
 
 ## Otros
 
