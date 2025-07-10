@@ -40,8 +40,10 @@ class NaveEnemiga{
     }
     method moverAbajo(){
         position = position.down(1)
-        if(position.y() < 0){
+        if(position.y() < 3){
             game.removeVisual(self)
+            //score.restarScore(1)
+
         }
     }
     method chocarNave(){
