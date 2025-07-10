@@ -11,7 +11,7 @@
 
 ## Capturas
 
-![Galactic Conflict](./assets/captura.png)
+![Galactic Conflict](./assets/captura1.png)
 
 ## Reglas de Juego / Instrucciones
 ### Objetivo
